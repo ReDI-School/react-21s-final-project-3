@@ -23,12 +23,16 @@ function App() {
           return (
             <li key={item.id}>
               {item.name}
-              {item.formatted_address}
+              {item.formatted_address}{' '}
+              {item.opening_hours.open_now ? 'open' : 'closed'}{' '}
+              {item.pickup ? 'pickup' : null}{' '}
+              {item.delivery ? 'delivery' : null}
+              <br />
+              <img src={item.photos[0].links[3]} alt="icon" />
             </li>
           );
         })}
       </ul>
-      <div className="App">Hello world!</div>
     </>
   );
 }
