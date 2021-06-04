@@ -22,7 +22,8 @@ export const ListOfRestaurants = () => {
       <ul>
         {restaurants.map((item) => (
           <li>
-            {item.name} {item.formatted_address} {item.opening_hours.open_now}
+            {item.name} {item.formatted_address}{' '}
+            {item.opening_hours.open_now ? 'open' : 'closed'}{' '}
             {item.pickup ? 'pickup' : null} {item.delivery ? 'delivery' : null}
             <br />
             <img src={item.photos[0].links[1]} alt="icon" />
