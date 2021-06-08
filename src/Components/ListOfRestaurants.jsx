@@ -18,15 +18,36 @@ export const ListOfRestaurants = () => {
   console.log(restaurants);
 
   return (
-    <div>
+    <div class="listcontainer">
       <ul>
         {restaurants.map((item) => (
-          <li>
-            {item.name} {item.formatted_address}{' '}
-            {item.opening_hours.open_now ? 'open' : 'closed'}{' '}
-            {item.pickup ? 'pickup' : null} {item.delivery ? 'delivery' : null}
-            <br />
-            <img src={item.photos[0].links[1]} alt="icon" />
+          <li class="restaurant_card">
+            <div class="restaurant_image">
+              <img class="image" src={item.photos[0].links[0]} alt="icon" />
+            </div>
+            <div class="card_content">
+              <div class="restaurant">
+                <div class="name-box">{item.name}</div>
+                <div class="adress-box"> {item.formatted_address} </div>
+              </div>
+              <div class="categories-box">
+                <div class="closed-box">
+                  {item.opening_hours.open_now ? 'open' : 'closed'}{' '}
+                </div>
+                <div class="pick-up-box">{item.pickup ? 'pickup' : null} </div>
+                <div class="delivery-box">
+                  {item.delivery ? 'delivery' : null}
+                </div>
+              </div>
+            </div>
+            <div class="thumb">
+              <div>
+                <span class="material-icons">thumb_up</span>
+              </div>
+              <div>
+                <span class="material-icons">thumb_down_alt</span>
+              </div>
+            </div>
           </li>
         ))}
       </ul>

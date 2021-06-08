@@ -3,6 +3,8 @@ import { NavBar } from './Components/NavBar';
 import { SearchBar } from './Components/SearchBar';
 import { ListOfRestaurants } from './Components/ListOfRestaurants';
 import { Footer } from './Components/Footer';
+import { FilteringCategories } from './Components/FilteringCategories';
+import { RestaurantsButton } from './Components/RestaurantsButton';
 
 function App() {
   return (
@@ -11,6 +13,11 @@ function App() {
       <div>
         <SearchBar />
       </div>
+      <div class="bottombar">
+        <RestaurantsButton />
+        <FilteringCategories />
+      </div>
+      <hr />
 
       <div>
         <ListOfRestaurants />
