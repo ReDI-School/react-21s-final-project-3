@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 
 export const ListOfRestaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -32,12 +32,11 @@ export const ListOfRestaurants = () => {
               </div>
               <div class="categories-box">
                 <div class="closed-box">
-                  {item.opening_hours.open_now ? 'open' : 'closed'}{' '}
+                  {item.opening_hours.open_now ? " open " : " closed "}{" "}
                 </div>
-                <div class="pick-up-box">{item.pickup ? 'pickup' : null} </div>
-                <div class="delivery-box">
-                  {item.delivery ? 'delivery' : null}
-                </div>
+                {item.pickup? <div class="pick-up-box" >{item.pickup ? " pickup " : null} </div>:null}
+                {item.delivery?<div class="delivery-box">
+                  {item.delivery ? " delivery " : null}</div>:null}
               </div>
             </div>
             <div class="thumb">

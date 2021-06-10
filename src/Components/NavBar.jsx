@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export const NavBar = () => {
   return (
+    <div>
     <nav class="navbar">
       <div class="left-side">
         <div class="home-link active-link">
@@ -17,7 +18,10 @@ export const NavBar = () => {
           src="http://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png"
           alt="Foodies"
         />
+        
       </div>
     </nav>
+  
+    </div>
   );
 };
