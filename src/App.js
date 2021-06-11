@@ -5,25 +5,32 @@ import { ListOfRestaurants } from './Components/ListOfRestaurants';
 import { Footer } from './Components/Footer';
 import { FilteringCategories } from './Components/FilteringCategories';
 import { RestaurantsButton } from './Components/RestaurantsButton';
+import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import DetailsPage from './Components/DetailsPage';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <div>
-        <SearchBar />
-      </div>
-      <div class="bottombar">
-        <RestaurantsButton />
-        <FilteringCategories />
-      </div>
-      <hr />
+    <Router>
+      <div className="App">
+        <NavBar />
+        <div>
+          <SearchBar />
+        </div>
+        <div class="bottombar">
+          <RestaurantsButton />
+          <FilteringCategories />
+        </div>
+        <hr />
 
-      <div>
-        <ListOfRestaurants />
+        <div>
+          <ListOfRestaurants />
+          <Route path="/detailspage/:id">
+            <DetailsPage />
+          </Route>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 }
 
