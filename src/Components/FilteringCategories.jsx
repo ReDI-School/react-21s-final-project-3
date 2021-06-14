@@ -1,15 +1,73 @@
-import React from "react";
+import React from 'react';
 
-export const FilteringCategories = () => {
+export const FilteringCategories = ({
+  restaurantsOn,
+  openButtonHandler,
+  closedButtonHandler,
+  pickupButtonHandler,
+  deliveryButtonHandler,
+}) => {
   return (
     <div class="categories">
-      <div class="open"> Open </div>
-      {"  "}
-      <div class="closed"> Closed </div>
-      {"  "}
-      <div class="pick-up"> Pick-up </div>
-      {"  "}
-      <div class="delivery"> Delivery </div>
+      <div>
+        <button
+          class="open"
+          onClick={openButtonHandler}
+          style={
+            restaurantsOn === 'restaurantsopen'
+              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              : null
+          }
+        >
+          {' '}
+          Open{' '}
+        </button>
+      </div>
+      {'  '}
+      <div>
+        <button
+          class="closed"
+          onClick={closedButtonHandler}
+          style={
+            restaurantsOn === 'restaurantsclosed'
+              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              : null
+          }
+        >
+          {' '}
+          Closed{' '}
+        </button>
+      </div>
+      {'  '}
+      <div>
+        <button
+          class="pick-up"
+          onClick={pickupButtonHandler}
+          style={
+            restaurantsOn === 'restaurantspickup'
+              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              : null
+          }
+        >
+          {' '}
+          Pick-up{' '}
+        </button>
+      </div>
+      {'  '}
+      <div>
+        <button
+          class="delivery"
+          onClick={deliveryButtonHandler}
+          style={
+            restaurantsOn === 'restaurantsdelivery'
+              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              : null
+          }
+        >
+          {' '}
+          Delivery{' '}
+        </button>
+      </div>
     </div>
   );
 };
