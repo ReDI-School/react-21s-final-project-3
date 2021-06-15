@@ -6,22 +6,23 @@ function DetailsPage() {
   const [details, setDetails] = useState([]);
 
   useEffect(() => {
+    const fetchDetails = async () => {
+      const response = await fetch(
+        `https://redi-final-restaurants.herokuapp.com/restaurants`
+      );
+      const details = await response.json();
+
+      console.log(details.results.find((restaurant) => restaurant.id === id));
+      setDetails(details.results.find((restaurant) => restaurant.id === id));
+    };
     fetchDetails();
-  }, []);
-
-  const fetchDetails = async () => {
-    const response = await fetch(
-      `https://redi-final-restaurants.herokuapp.com/restaurants`
-    );
-    const details = await response.json();
-
-    console.log(details.results.find((restaurant) => restaurant.id === id));
-    setDetails(details.results.find((restaurant) => restaurant.id === id));
-  };
+  }, [id]);
 
   return (
     <div className="detailsPage">
+      <h1>Details page</h1>
       <h1>{details.name}</h1>
+      <p>{details.cuisine}</p>
     </div>
   );
 }

@@ -5,7 +5,13 @@ import { ListOfRestaurants } from './Components/ListOfRestaurants';
 import { Footer } from './Components/Footer';
 import { FilteringCategories } from './Components/FilteringCategories';
 import { RestaurantsButton } from './Components/RestaurantsButton';
-import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Link,
+  Route,
+  withRouter,
+} from 'react-router-dom';
 import DetailsPage from './Components/DetailsPage';
 
 function App() {
@@ -21,12 +27,14 @@ function App() {
           <FilteringCategories />
         </div>
         <hr />
-
         <div>
-          <ListOfRestaurants />
-          <Route path="/detailspage/:id">
-            <DetailsPage />
-          </Route>
+          <Switch>
+            <Route exact path="/" component={withRouter(ListOfRestaurants)} />
+            <Route
+              path="/detailspage/:id"
+              component={withRouter(DetailsPage)}
+            />
+          </Switch>
         </div>
         <Footer />
       </div>
