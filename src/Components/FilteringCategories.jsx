@@ -1,72 +1,75 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-export const FilteringCategories = ({
-  restaurantsOn,
-  openButtonHandler,
-  closedButtonHandler,
-  pickupButtonHandler,
-  deliveryButtonHandler,
-}) => {
+
+export const FilteringCategories = () => {
+  const location = useLocation();
+
   return (
     <div class="categories">
       <div>
-        <button
-          class="open"
-          onClick={openButtonHandler}
-          style={
-            restaurantsOn === 'restaurantsopen'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
-              : null
-          }
-        >
-          {' '}
-          Open{' '}
-        </button>
+        <Link to="/opennow">
+          <button
+            class="open"
+            style={
+              location.pathname === '/opennow'
+                ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+                : null
+            }
+          >
+            {' '}
+            Open{' '}
+          </button>          
+        </Link>
+
       </div>
       {'  '}
       <div>
-        <button
-          class="closed"
-          onClick={closedButtonHandler}
-          style={
-            restaurantsOn === 'restaurantsclosed'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
-              : null
-          }
-        >
-          {' '}
-          Closed{' '}
-        </button>
+        <Link to="/closednow">
+          <button
+            class="closed"
+            style={
+              location.pathname === '/closednow'
+                ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+                : null
+            }
+          >
+            {' '}
+            Closed{' '}
+          </button>          
+        </Link>
       </div>
       {'  '}
       <div>
-        <button
-          class="pick-up"
-          onClick={pickupButtonHandler}
-          style={
-            restaurantsOn === 'restaurantspickup'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
-              : null
-          }
-        >
-          {' '}
-          Pick-up{' '}
-        </button>
+        <Link to="/pickup">
+          <button
+            class="pick-up"
+            style={
+              location.pathname === '/pickup'
+                ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+                : null
+            }
+          >
+            {' '}
+            Pick-up{' '}
+          </button>          
+        </Link>
       </div>
       {'  '}
       <div>
-        <button
-          class="delivery"
-          onClick={deliveryButtonHandler}
-          style={
-            restaurantsOn === 'restaurantsdelivery'
+        <Link to="/delivery">
+          <button
+            class="delivery"
+            style={
+              location.pathname === '/delivery'
               ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
-              : null
-          }
-        >
-          {' '}
-          Delivery{' '}
-        </button>
+                : null
+            }
+          >
+            {' '}
+            Delivery{' '}
+          </button>  
+        </Link>
       </div>
     </div>
   );
