@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const SearchBar = () => {
+export const SearchBar = ({
+  setRestaurantsOn,
+  inputOnChangeHandler,
+  search,
+}) => {
   return (
     <div class="searchbar">
       <div class="sticky">
@@ -8,8 +12,15 @@ export const SearchBar = () => {
           <h1>Let's Order Some Delicious Food &#10083;</h1>
 
           <div class="input">
-            <input type="text" placeholder="Find Your Restaurant.." size="47" />
+            <input
+              value={search}
+              onChange={inputOnChangeHandler}
+              type="text"
+              placeholder="Find Your Restaurant.."
+              size="47"
+            />
           </div>
+
           <h2 class="we_love">
             We Love sharing <br /> Good Food with Great <br />
             People &#9825;
