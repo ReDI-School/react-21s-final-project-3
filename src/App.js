@@ -5,6 +5,17 @@ import { NavBar } from './Components/NavBar';
 import { SearchBar } from './Components/SearchBar';
 import { Footer } from './Components/Footer';
 import { RestaurantsButton } from './Components/RestaurantsButton';
+
+import { ListOfRestaurants } from './Components/ListOfRestaurants';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Link,
+  Route,
+  withRouter,
+} from 'react-router-dom';
+import DetailsPage from './Components/DetailsPage';
 import { FilteringCategories } from './Components/FilteringCategories';
 import { Restaurant } from './Components/Restaurant';
 
@@ -90,8 +101,10 @@ function App() {
   //End of filter by search bar
 
   return (
-    <div className="App">
-      <NavBar />
+    <Router>
+      <div className="App">
+        <NavBar />
+      </div>
 
       <div>
         <SearchBar
@@ -100,6 +113,7 @@ function App() {
           search={search}
         />
       </div>
+
       <div class="bottombar">
         <RestaurantsButton
           restaurantsButtonOn={restaurantsButtonOn}
@@ -116,6 +130,13 @@ function App() {
       </div>
       <hr />
 
+      <div>
+        <Switch>
+          <Route exact path="/" component={withRouter(ListOfRestaurants)} />
+          <Route path="/detailspage/:id" component={withRouter(DetailsPage)} />
+        </Switch>
+      </div>
+
       <div class="listcontainer">
         <ul>
           {filteredRestaurants &&
@@ -124,7 +145,7 @@ function App() {
       </div>
 
       <Footer />
-    </div>
+    </Router>
   );
 }
 
