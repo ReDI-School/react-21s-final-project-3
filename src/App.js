@@ -72,12 +72,33 @@ function App() {
     setRestaurantsButtonOn(false);
   };
 
+  //Filter by search bar
+  const [search, setSearch] = useState('');
+  const inputOnChangeHandler = (event) => {
+    setSearch(event.target.value);
+    setRestaurantsButtonOn(false);
+    setRestaurantsOn('searchbar');
+
+    setFilteredRestaurants(
+      restaurants.filter((item) =>
+        item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      )
+    );
+    setRestaurantsButtonOn(false);
+  };
+
+  //End of filter by search bar
+
   return (
     <div className="App">
       <NavBar />
 
       <div>
-        <SearchBar />
+        <SearchBar
+          setRestaurantsOn={setRestaurantsOn}
+          inputOnChangeHandler={inputOnChangeHandler}
+          search={search}
+        />
       </div>
       <div class="bottombar">
         <RestaurantsButton
