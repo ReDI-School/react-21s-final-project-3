@@ -7,7 +7,7 @@ function DetailsPage() {
 
   useEffect(() => {
     fetchDetails();
-  }, [fetchDetails]);
+  }, []);
 
   const fetchDetails = async () => {
     const response = await fetch(
