@@ -18,6 +18,10 @@ import {
 import DetailsPage from './Components/DetailsPage';
 import { FilteringCategories } from './Components/FilteringCategories';
 import { Restaurant } from './Components/Restaurant';
+import { createBrowserHistory } from 'history';
+
+
+const history = createBrowserHistory();
 
 function App() {
   const [restaurantsOn, setRestaurantsOn] = useState('');
@@ -25,7 +29,10 @@ function App() {
   const [restaurantsButtonOn, setRestaurantsButtonOn] = useState(false);
 
   const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState();
+  const [search, setSearch] = useState('');
+
+  const filteredRestaurants = restaurants.filter((item) => item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
+  
 
   //const [open, setOpen] = useState(false);
 
@@ -45,56 +52,14 @@ function App() {
   const restaurantsButtonHandler = () => {
     setRestaurantsButtonOn(!restaurantsButtonOn);
     setRestaurantsOn('restaurantsInBerlin');
-    restaurantsButtonOn
-      ? setFilteredRestaurants()
-      : setFilteredRestaurants(restaurants);
-  };
-  const openButtonHandler = () => {
-    setRestaurantsOn('restaurantsopen');
-    setFilteredRestaurants(
-      restaurants.filter((restaurant) => restaurant.opening_hours.open_now)
-    );
-    //setOpen(true);
-    setRestaurantsButtonOn(false);
-  };
-  const closedButtonHandler = () => {
-    setRestaurantsOn('restaurantsclosed');
-    setFilteredRestaurants(
-      restaurants.filter(
-        (restaurant) => restaurant.opening_hours.open_now === false
-      )
-    );
-    setRestaurantsButtonOn(false);
-
-    //setOpen(false);
-  };
-  const pickupButtonHandler = () => {
-    setRestaurantsOn('restaurantspickup');
-    setFilteredRestaurants(
-      restaurants.filter((restaurant) => restaurant.pickup)
-    );
-    setRestaurantsButtonOn(false);
-  };
-  const deliveryButtonHandler = () => {
-    setRestaurantsOn('restaurantsdelivery');
-    setFilteredRestaurants(
-      restaurants.filter((restaurant) => restaurant.delivery)
-    );
-    setRestaurantsButtonOn(false);
   };
 
   //Filter by search bar
-  const [search, setSearch] = useState('');
   const inputOnChangeHandler = (event) => {
     setSearch(event.target.value);
     setRestaurantsButtonOn(false);
     setRestaurantsOn('searchbar');
 
-    setFilteredRestaurants(
-      restaurants.filter((item) =>
-        item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-      )
-    );
     setRestaurantsButtonOn(false);
   };
 
@@ -120,28 +85,19 @@ function App() {
           restaurantsOn={restaurantsOn}
           restaurantsButtonHandler={restaurantsButtonHandler}
         />
-        <FilteringCategories
-          restaurantsOn={restaurantsOn}
-          openButtonHandler={openButtonHandler}
-          closedButtonHandler={closedButtonHandler}
-          pickupButtonHandler={pickupButtonHandler}
-          deliveryButtonHandler={deliveryButtonHandler}
-        />
+        <FilteringCategories />
       </div>
       <hr />
 
       <div>
         <Switch>
-          <Route exact path="/" component={withRouter(ListOfRestaurants)} />
+          <Route exact path="/" component={withRouter(() => <ListOfRestaurants restaurants={filteredRestaurants} />)} />
+          <Route path="/opennow" component={withRouter(() => <ListOfRestaurants restaurants={filteredRestaurants.filter((restaurant) => restaurant.opening_hours.open_now)} />)} />
+          <Route path="/closednow" component={withRouter(() => <ListOfRestaurants restaurants={filteredRestaurants.filter((restaurant) => !restaurant.opening_hours.open_now)} />)} />
+          <Route path="/pickup" component={withRouter(() => <ListOfRestaurants restaurants={filteredRestaurants.filter((restaurant) => restaurant.pickup)} />)} />
+          <Route path="/delivery" component={withRouter(() => <ListOfRestaurants restaurants={filteredRestaurants.filter((restaurant) => restaurant.delivery)} />)} />
           <Route path="/detailspage/:id" component={withRouter(DetailsPage)} />
         </Switch>
-      </div>
-
-      <div class="listcontainer">
-        <ul>
-          {filteredRestaurants &&
-            filteredRestaurants.map((item) => <Restaurant item={item} />)}
-        </ul>
       </div>
 
       <Footer />

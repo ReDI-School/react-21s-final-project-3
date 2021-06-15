@@ -1,24 +1,27 @@
 import React from 'react';
 import '../App.css';
+import { Link, useLocation } from 'react-router-dom';
 
 export const RestaurantsButton = ({
-  restaurantsOn,
   restaurantsButtonOn,
-  restaurantsButtonHandler,
 }) => {
+
+  const location = useLocation();
+
   return (
     <div>
-      <button
-        class="restaurantsbutton"
-        onClick={restaurantsButtonHandler}
-        style={
-          restaurantsButtonOn
-            ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
-            : null
-        }
-      >
-        <span> Restaurants In Berlin </span>
-      </button>
+      <Link to="/">
+        <button
+          class="restaurantsbutton"
+          style={
+            location.pathname === '/'
+              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              : null
+          }
+        >
+          <span> Restaurants In Berlin </span>
+        </button>
+      </Link>
     </div>
   );
 };
