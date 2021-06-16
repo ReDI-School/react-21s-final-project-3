@@ -6,13 +6,12 @@ import { SearchBar } from './Components/SearchBar';
 import { Footer } from './Components/Footer';
 import { RestaurantsButton } from './Components/RestaurantsButton';
 
-import { ListOfRestaurants } from './Components/ListOfRestaurants';
+//import { ListOfRestaurants } from './Components/ListOfRestaurants';
+import { About } from './Components/About';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
-  useParams,
   Route,
   withRouter,
 } from 'react-router-dom';
@@ -104,54 +103,56 @@ function App() {
   return (
     <Router>
       <Route>
-        <div className="App">
-          <NavBar />
-        </div>
-      </Route>
-
-      <div>
-        <SearchBar
-          setRestaurantsOn={setRestaurantsOn}
-          inputOnChangeHandler={inputOnChangeHandler}
-          search={search}
-        />
-      </div>
-
-      <div class="bottombar">
-        <RestaurantsButton
-          restaurantsButtonOn={restaurantsButtonOn}
-          restaurantsOn={restaurantsOn}
-          restaurantsButtonHandler={restaurantsButtonHandler}
-        />
-        <FilteringCategories
-          restaurantsOn={restaurantsOn}
-          openButtonHandler={openButtonHandler}
-          closedButtonHandler={closedButtonHandler}
-          pickupButtonHandler={pickupButtonHandler}
-          deliveryButtonHandler={deliveryButtonHandler}
-        />
-      </div>
-      <hr />
-
-      <div>
         <Switch>
-          <Route exact path="/">
-            <div className="listcontainer">
-              <ul>
-                {filteredRestaurants &&
-                  filteredRestaurants.map((item) => <Restaurant item={item} />)}
-              </ul>
-            </div>
-          </Route>
-
-          <Route
-            exact
-            path="/detailspage/:id"
-            component={withRouter(DetailsPage)}
-          />
+          <div className="App">
+            <NavBar />
+          </div>
         </Switch>
-      </div>
+      </Route>
+      <Switch>
+        <Route exact path="/">
+          <div>
+            <SearchBar
+              setRestaurantsOn={setRestaurantsOn}
+              inputOnChangeHandler={inputOnChangeHandler}
+              search={search}
+            />
+          </div>
 
+          <div class="bottombar">
+            <RestaurantsButton
+              restaurantsButtonOn={restaurantsButtonOn}
+              restaurantsOn={restaurantsOn}
+              restaurantsButtonHandler={restaurantsButtonHandler}
+            />
+            <FilteringCategories
+              restaurantsOn={restaurantsOn}
+              openButtonHandler={openButtonHandler}
+              closedButtonHandler={closedButtonHandler}
+              pickupButtonHandler={pickupButtonHandler}
+              deliveryButtonHandler={deliveryButtonHandler}
+            />
+          </div>
+          <hr />
+
+          <div className="listcontainer">
+            <ul>
+              {filteredRestaurants &&
+                filteredRestaurants.map((item) => <Restaurant item={item} />)}
+            </ul>
+          </div>
+        </Route>
+
+        <Route
+          exact
+          path="/detailspage/:id"
+          component={withRouter(DetailsPage)}
+        />
+
+        <Route exact path="/about/">
+          <About />
+        </Route>
+      </Switch>
       <Footer />
     </Router>
   );

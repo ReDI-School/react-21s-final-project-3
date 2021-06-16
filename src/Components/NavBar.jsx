@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 export const NavBar = () => {
   return (
     <Router>
@@ -7,12 +8,18 @@ export const NavBar = () => {
         <nav class="navbar">
           <div class="left-side">
             <div class="home-link active-link">
-              <span> Home</span>
+              <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <span> Home</span>
+              </Link>
             </div>
 
             <div class="about-link ">
-              <Link to="/About" style={{ textDecoration: 'none' }}>
-                <span> About</span>
+              <Link
+                to="/about"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                target="_blank"
+              >
+                About
               </Link>
             </div>
           </div>
