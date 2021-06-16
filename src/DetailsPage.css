@@ -18,10 +18,9 @@
   padding-top: 3rem;
 }
 
-.detailsPage p {
-  padding-top: 1rem;
+.smallcontainer p {
+  border: solid green;
 }
-
-.smallcontainer {
-  margin-top: 5rem;
+.restaurantname {
+  color: black;
 }

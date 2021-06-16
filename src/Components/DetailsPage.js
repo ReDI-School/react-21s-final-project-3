@@ -24,8 +24,8 @@ function DetailsPage() {
     <>
       {details.name ? (
         <div className="detailsPage">
-          <h1>{details.name}</h1>
-          <div clasName="smallcontainer">
+          <div className="detailcontainer">
+            <h1 className="restaurantname">{details.name}</h1>
             <p>Rating: {details.rating}</p>
             <p>Cuisine: {details.cuisine}</p>
             <p>{details.formatted_address}</p>
