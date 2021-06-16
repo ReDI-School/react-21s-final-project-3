@@ -1,27 +1,30 @@
-import React from "react";
-
+import React from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 export const NavBar = () => {
   return (
-    <div>
-    <nav class="navbar">
-      <div class="left-side">
-        <div class="home-link active-link">
-          <span> Home</span>
-        </div>
-        <div class="about-link ">
-          <span> About</span>
-        </div>
+    <Router>
+      <div>
+        <nav class="navbar">
+          <div class="left-side">
+            <div class="home-link active-link">
+              <span> Home</span>
+            </div>
+
+            <div class="about-link ">
+              <Link to="/About" style={{ textDecoration: 'none' }}>
+                <span> About</span>
+              </Link>
+            </div>
+          </div>
+          <div class="right-side">
+            <img
+              class="foodies_logo"
+              src="http://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png"
+              alt="Foodies"
+            />
+          </div>
+        </nav>
       </div>
-      <div class="right-side">
-        <img
-          class="foodies_logo"
-          src="http://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png"
-          alt="Foodies"
-        />
-        
-      </div>
-    </nav>
-  
-    </div>
+    </Router>
   );
 };

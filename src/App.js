@@ -12,6 +12,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Link,
+  useParams,
   Route,
   withRouter,
 } from 'react-router-dom';
@@ -102,46 +103,54 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <NavBar />
-      </div>
+      <Route>
+        <div className="App">
+          <NavBar />
+        </div>
+      </Route>
+      <Route exact path="/">
+        <div>
+          <SearchBar
+            setRestaurantsOn={setRestaurantsOn}
+            inputOnChangeHandler={inputOnChangeHandler}
+            search={search}
+          />
+        </div>
 
-      <div>
-        <SearchBar
-          setRestaurantsOn={setRestaurantsOn}
-          inputOnChangeHandler={inputOnChangeHandler}
-          search={search}
-        />
-      </div>
-
-      <div class="bottombar">
-        <RestaurantsButton
-          restaurantsButtonOn={restaurantsButtonOn}
-          restaurantsOn={restaurantsOn}
-          restaurantsButtonHandler={restaurantsButtonHandler}
-        />
-        <FilteringCategories
-          restaurantsOn={restaurantsOn}
-          openButtonHandler={openButtonHandler}
-          closedButtonHandler={closedButtonHandler}
-          pickupButtonHandler={pickupButtonHandler}
-          deliveryButtonHandler={deliveryButtonHandler}
-        />
-      </div>
-      <hr />
+        <div class="bottombar">
+          <RestaurantsButton
+            restaurantsButtonOn={restaurantsButtonOn}
+            restaurantsOn={restaurantsOn}
+            restaurantsButtonHandler={restaurantsButtonHandler}
+          />
+          <FilteringCategories
+            restaurantsOn={restaurantsOn}
+            openButtonHandler={openButtonHandler}
+            closedButtonHandler={closedButtonHandler}
+            pickupButtonHandler={pickupButtonHandler}
+            deliveryButtonHandler={deliveryButtonHandler}
+          />
+        </div>
+        <hr />
+      </Route>
 
       <div>
         <Switch>
-          <Route exact path="/" component={withRouter(ListOfRestaurants)} />
-          <Route path="/detailspage/:id" component={withRouter(DetailsPage)} />
-        </Switch>
-      </div>
+          <Route exact path="/">
+            <div class="listcontainer">
+              <ul>
+                {filteredRestaurants &&
+                  filteredRestaurants.map((item) => <Restaurant item={item} />)}
+              </ul>
+            </div>
+          </Route>
 
-      <div class="listcontainer">
-        <ul>
-          {filteredRestaurants &&
-            filteredRestaurants.map((item) => <Restaurant item={item} />)}
-        </ul>
+          <Route
+            exact
+            path="/detailspage/:id"
+            component={withRouter(DetailsPage)}
+          />
+        </Switch>
       </div>
 
       <Footer />

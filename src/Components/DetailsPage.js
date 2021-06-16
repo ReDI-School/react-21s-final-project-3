@@ -12,18 +12,23 @@ function DetailsPage() {
       );
       const details = await response.json();
 
-      console.log(details.results.find((restaurant) => restaurant.id === id));
-      setDetails(details.results.find((restaurant) => restaurant.id === id));
+      console.log(details.results.filter((restaurant) => restaurant.id === id));
+
+      setDetails(details.results.filter((restaurant) => restaurant.id === id));
     };
     fetchDetails();
   }, [id]);
 
   return (
-    <div className="detailsPage">
-      <h1>Details page</h1>
-      <h1>{details.name}</h1>
-      <p>{details.cuisine}</p>
-    </div>
+    <>
+      {details.name ? (
+        <div className="detailsPage">
+          <h1>Details page</h1>
+          <h1>{details.name}</h1>
+          <p>{details.cuisine}</p>
+        </div>
+      ) : null}
+    </>
   );
 }
 
