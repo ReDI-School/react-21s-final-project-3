@@ -1,0 +1,22 @@
+.detailsPage {
+  background: linear-gradient(rgb(204, 204, 224), rgb(235, 222, 197));
+  border-radius: 2rem;
+  margin-left: 4vh;
+  margin-right: 4vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.detailsPage img {
+  width: 25rem;
+  height: 25rem;
+  padding-bottom: 2rem;
+  justify-content: left;
+  padding-left: 2rem;
+  padding-top: 3rem;
+}
+
+.detailsPage p {
+  justify-content: right;
+  padding-top: 2rem;
+}
