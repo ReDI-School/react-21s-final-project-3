@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 export const NavBar = () => {
   return (
     <Router>
@@ -11,8 +12,12 @@ export const NavBar = () => {
             </div>
 
             <div class="about-link ">
-              <Link to="/About" style={{ textDecoration: 'none' }}>
-                <span> About</span>
+              <Link
+                to="/about"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                target="_blank"
+              >
+                About
               </Link>
             </div>
           </div>

@@ -6,13 +6,12 @@ import { SearchBar } from './Components/SearchBar';
 import { Footer } from './Components/Footer';
 import { RestaurantsButton } from './Components/RestaurantsButton';
 
-import { ListOfRestaurants } from './Components/ListOfRestaurants';
+//import { ListOfRestaurants } from './Components/ListOfRestaurants';
+import { About } from './Components/About';
 
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
-  useParams,
   Route,
   withRouter,
 } from 'react-router-dom';
@@ -147,8 +146,11 @@ function App() {
           path="/detailspage/:id"
           component={withRouter(DetailsPage)}
         />
-      </Switch>
 
+        <Route exact path="/about/">
+          <About />
+        </Route>
+      </Switch>
       <Footer />
     </Router>
   );

@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 export const Restaurant = ({ item }) => {
   return (
-    <Link to={`/detailspage/${item.id}`} style={{ textDecoration: 'none' }}>
+    <Link
+      to={`/detailspage/${item.id}`}
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
+      {' '}
       <li class="restaurant_card">
         <div class="restaurant_image">
           <img class="image" src={item.photos[0].links[0]} alt="icon" />
