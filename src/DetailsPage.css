@@ -1,10 +1,12 @@
 .detailsPage {
   background: linear-gradient(rgb(204, 204, 224), rgb(235, 222, 197));
   border-radius: 2rem;
+  margin-top: 2rem;
   margin-left: 4vh;
   margin-right: 4vh;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .detailsPage img {
@@ -17,6 +19,9 @@
 }
 
 .detailsPage p {
-  justify-content: right;
-  padding-top: 2rem;
+  padding-top: 1rem;
+}
+
+.smallcontainer {
+  margin-top: 5rem;
 }
