@@ -108,36 +108,35 @@ function App() {
           <NavBar />
         </div>
       </Route>
-      <Route exact path="/">
-        <div>
-          <SearchBar
-            setRestaurantsOn={setRestaurantsOn}
-            inputOnChangeHandler={inputOnChangeHandler}
-            search={search}
-          />
-        </div>
 
-        <div class="bottombar">
-          <RestaurantsButton
-            restaurantsButtonOn={restaurantsButtonOn}
-            restaurantsOn={restaurantsOn}
-            restaurantsButtonHandler={restaurantsButtonHandler}
-          />
-          <FilteringCategories
-            restaurantsOn={restaurantsOn}
-            openButtonHandler={openButtonHandler}
-            closedButtonHandler={closedButtonHandler}
-            pickupButtonHandler={pickupButtonHandler}
-            deliveryButtonHandler={deliveryButtonHandler}
-          />
-        </div>
-        <hr />
-      </Route>
+      <div>
+        <SearchBar
+          setRestaurantsOn={setRestaurantsOn}
+          inputOnChangeHandler={inputOnChangeHandler}
+          search={search}
+        />
+      </div>
+
+      <div class="bottombar">
+        <RestaurantsButton
+          restaurantsButtonOn={restaurantsButtonOn}
+          restaurantsOn={restaurantsOn}
+          restaurantsButtonHandler={restaurantsButtonHandler}
+        />
+        <FilteringCategories
+          restaurantsOn={restaurantsOn}
+          openButtonHandler={openButtonHandler}
+          closedButtonHandler={closedButtonHandler}
+          pickupButtonHandler={pickupButtonHandler}
+          deliveryButtonHandler={deliveryButtonHandler}
+        />
+      </div>
+      <hr />
 
       <div>
         <Switch>
           <Route exact path="/">
-            <div class="listcontainer">
+            <div className="listcontainer">
               <ul>
                 {filteredRestaurants &&
                   filteredRestaurants.map((item) => <Restaurant item={item} />)}
