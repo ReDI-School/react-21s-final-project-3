@@ -108,49 +108,46 @@ function App() {
           <NavBar />
         </div>
       </Route>
+      <Switch>
+        <Route exact path="/">
+          <div>
+            <SearchBar
+              setRestaurantsOn={setRestaurantsOn}
+              inputOnChangeHandler={inputOnChangeHandler}
+              search={search}
+            />
+          </div>
 
-      <div>
-        <SearchBar
-          setRestaurantsOn={setRestaurantsOn}
-          inputOnChangeHandler={inputOnChangeHandler}
-          search={search}
+          <div class="bottombar">
+            <RestaurantsButton
+              restaurantsButtonOn={restaurantsButtonOn}
+              restaurantsOn={restaurantsOn}
+              restaurantsButtonHandler={restaurantsButtonHandler}
+            />
+            <FilteringCategories
+              restaurantsOn={restaurantsOn}
+              openButtonHandler={openButtonHandler}
+              closedButtonHandler={closedButtonHandler}
+              pickupButtonHandler={pickupButtonHandler}
+              deliveryButtonHandler={deliveryButtonHandler}
+            />
+          </div>
+          <hr />
+
+          <div className="listcontainer">
+            <ul>
+              {filteredRestaurants &&
+                filteredRestaurants.map((item) => <Restaurant item={item} />)}
+            </ul>
+          </div>
+        </Route>
+
+        <Route
+          exact
+          path="/detailspage/:id"
+          component={withRouter(DetailsPage)}
         />
-      </div>
-
-      <div class="bottombar">
-        <RestaurantsButton
-          restaurantsButtonOn={restaurantsButtonOn}
-          restaurantsOn={restaurantsOn}
-          restaurantsButtonHandler={restaurantsButtonHandler}
-        />
-        <FilteringCategories
-          restaurantsOn={restaurantsOn}
-          openButtonHandler={openButtonHandler}
-          closedButtonHandler={closedButtonHandler}
-          pickupButtonHandler={pickupButtonHandler}
-          deliveryButtonHandler={deliveryButtonHandler}
-        />
-      </div>
-      <hr />
-
-      <div>
-        <Switch>
-          <Route exact path="/">
-            <div className="listcontainer">
-              <ul>
-                {filteredRestaurants &&
-                  filteredRestaurants.map((item) => <Restaurant item={item} />)}
-              </ul>
-            </div>
-          </Route>
-
-          <Route
-            exact
-            path="/detailspage/:id"
-            component={withRouter(DetailsPage)}
-          />
-        </Switch>
-      </div>
+      </Switch>
 
       <Footer />
     </Router>
