@@ -24,9 +24,9 @@
 }
 
 .restaurantname {
-  color: rgb(77, 77, 180);
+  color: rgb(5, 5, 24);
   text-transform: uppercase;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .info {
   color: orangered;
