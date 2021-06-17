@@ -5,7 +5,7 @@ import { NavBar } from './Components/NavBar';
 import { SearchBar } from './Components/SearchBar';
 import { Footer } from './Components/Footer';
 import { RestaurantsButton } from './Components/RestaurantsButton';
-
+import Googlemaps from './Components/Googlemaps';
 //import { ListOfRestaurants } from './Components/ListOfRestaurants';
 import { About } from './Components/About';
 
@@ -153,7 +153,9 @@ function App() {
           <About />
         </Route>
       </Switch>
+
       <Footer />
+      <Googlemaps />
     </Router>
   );
 }
