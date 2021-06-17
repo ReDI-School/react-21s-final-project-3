@@ -83,7 +83,7 @@ input {
 /* End searchbar style */
 .restaurantsbutton {
   background-color: black;
-  color: white;
+  color: orangered;
   font-family: 'Montserrat', sans-serif;
   border: transparent;
   height: 55px;
@@ -292,6 +292,11 @@ footer {
 }
 .madewith {
   height: 350px;
-  padding: 40px;
-  margin-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+}
+.IK {
+  height: 240px;
+  padding: 20px;
+  margin-left: 100px;
 }

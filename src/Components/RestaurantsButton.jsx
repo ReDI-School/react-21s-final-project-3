@@ -13,7 +13,7 @@ export const RestaurantsButton = ({
         onClick={restaurantsButtonHandler}
         style={
           restaurantsButtonOn
-            ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+            ? { backgroundColor: 'rgb(140, 191, 217, 0.7)', color: 'white' }
             : null
         }
       >

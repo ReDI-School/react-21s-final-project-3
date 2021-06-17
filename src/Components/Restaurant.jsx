@@ -5,8 +5,7 @@ export const Restaurant = ({ item }) => {
   return (
     <Link
       to={`/detailspage/${item.id}`}
-      style={{ textDecoration: 'none' }}
-      target="_blank"
+      style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <li class="restaurant_card">
         <div class="restaurant_image">
