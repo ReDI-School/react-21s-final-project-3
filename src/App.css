@@ -290,3 +290,8 @@ footer {
     transform: rotate(360deg);
   }
 }
+.madewith {
+  height: 350px;
+  padding: 40px;
+  margin-top: 50px;
+}
