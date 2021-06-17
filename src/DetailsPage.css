@@ -1,5 +1,5 @@
 .detailsPage {
-  background: linear-gradient(rgb(141, 122, 80), rgb(235, 222, 197));
+  background: linear-gradient(rgb(140, 191, 217, 0.7), rgb(235, 222, 197));
   border-radius: 2rem;
   margin-top: 0.5rem;
   margin-left: 4vh;
@@ -7,12 +7,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  height: 35rem;
+  height: 34rem;
 }
 
 .detailsPage img {
   width: 25rem;
   height: 25rem;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
   padding-bottom: 2rem;
   justify-content: left;
   padding-left: 2rem;
@@ -21,4 +25,9 @@
 
 .restaurantname {
   color: black;
+  text-transform: uppercase;
+}
+.info {
+  color: orangered;
+  text-transform: uppercase;
 }

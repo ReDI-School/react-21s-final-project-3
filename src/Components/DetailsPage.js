@@ -26,14 +26,23 @@ function DetailsPage() {
         <div className="detailsPage">
           <div className="detailcontainer">
             <h1 className="restaurantname">{details.name}</h1>
-            <p>Rating: {details.rating}</p>
-            <p>Cuisine: {details.cuisine}</p>
-            <p>{details.formatted_address}</p>
             <p>
-              Contact: {details.social.phone} e-mail: {details.social.email}
+              <span class="info">Rating </span>: {details.rating}
+            </p>
+            <p>
+              <span class="info">Cuisine</span> : {details.cuisine}
+            </p>
+            <p>
+              <span class="info">Adress </span>: {details.formatted_address}
+            </p>
+            <p>
+              <span class="info">Contact </span>: {details.social.phone}
+            </p>{' '}
+            <p>
+              <span class="info">e-mail </span>: {details.social.email}
             </p>
           </div>
-          <img className="img" src={details.photos[0].links[0]} alt="icon" />
+          <img class="img" src={details.photos[0].links[0]} alt="icon" />
         </div>
       ) : null}
     </>
