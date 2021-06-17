@@ -8,7 +8,9 @@ export const NavBar = () => {
         <nav class="navbar">
           <div class="left-side">
             <div class="home-link active-link">
-              <span> Home</span>
+              <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <span> Home</span>
+              </Link>
             </div>
 
             <div class="about-link ">

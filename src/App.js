@@ -103,9 +103,11 @@ function App() {
   return (
     <Router>
       <Route>
-        <div className="App">
-          <NavBar />
-        </div>
+        <Switch>
+          <div className="App">
+            <NavBar />
+          </div>
+        </Switch>
       </Route>
       <Switch>
         <Route exact path="/">
