@@ -8,7 +8,7 @@ import { RestaurantsButton } from './Components/RestaurantsButton';
 
 //import { ListOfRestaurants } from './Components/ListOfRestaurants';
 import { About } from './Components/About';
-
+import Map from './Components/Map';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,7 +25,7 @@ function App() {
   const [restaurantsButtonOn, setRestaurantsButtonOn] = useState(false);
 
   const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState();
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   //const [open, setOpen] = useState(false);
 
@@ -134,12 +134,21 @@ function App() {
             />
           </div>
           <hr />
-
-          <div className="listcontainer">
-            <ul>
-              {filteredRestaurants &&
-                filteredRestaurants.map((item) => <Restaurant item={item} />)}
-            </ul>
+          <div class="maplistcontainer">
+            <div className="listcontainer">
+              <ul>
+                {filteredRestaurants &&
+                  filteredRestaurants.map((item) => <Restaurant item={item} />)}
+              </ul>
+              <div>
+                {filteredRestaurants && filteredRestaurants.length > 0 && (
+                  <Map
+                    restaurants={restaurants}
+                    filteredRestaurants={filteredRestaurants}
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </Route>
 

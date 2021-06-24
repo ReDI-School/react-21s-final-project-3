@@ -17,7 +17,7 @@ export const SearchBar = ({
               onChange={inputOnChangeHandler}
               type="text"
               placeholder="Find Your Restaurant.."
-              size="47"
+              size="48"
             />
           </div>
 
