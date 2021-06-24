@@ -1,4 +1,5 @@
 import './App.css';
+import './Components/darkmode.css';
 
 import React, { useState, useEffect } from 'react';
 import { NavBar } from './Components/NavBar';
@@ -101,72 +102,76 @@ function App() {
   //End of filter by search bar
 
   return (
-    <Router>
-      <Route>
+    <div className="App">
+      <Router>
+        <Route>
+          <Switch>
+            <div>
+              <NavBar />
+            </div>
+          </Switch>
+        </Route>
         <Switch>
-          <div className="App">
-            <NavBar />
-          </div>
-        </Switch>
-      </Route>
-      <Switch>
-        <Route exact path="/">
-          <div>
-            <SearchBar
-              setRestaurantsOn={setRestaurantsOn}
-              inputOnChangeHandler={inputOnChangeHandler}
-              search={search}
-            />
-          </div>
+          <Route exact path="/">
+            <div>
+              <SearchBar
+                setRestaurantsOn={setRestaurantsOn}
+                inputOnChangeHandler={inputOnChangeHandler}
+                search={search}
+              />
+            </div>
 
-          <div class="bottombar">
-            <RestaurantsButton
-              restaurantsButtonOn={restaurantsButtonOn}
-              restaurantsOn={restaurantsOn}
-              restaurantsButtonHandler={restaurantsButtonHandler}
-            />
-            <FilteringCategories
-              restaurantsOn={restaurantsOn}
-              openButtonHandler={openButtonHandler}
-              closedButtonHandler={closedButtonHandler}
-              pickupButtonHandler={pickupButtonHandler}
-              deliveryButtonHandler={deliveryButtonHandler}
-            />
-          </div>
-          <hr />
-          <div class="maplistcontainer">
-            <div className="listcontainer">
-              <ul>
-                {filteredRestaurants &&
-                  filteredRestaurants.map((item) => <Restaurant item={item} />)}
-              </ul>
-              <div>
-                {filteredRestaurants && filteredRestaurants.length > 0 && (
-                  <Map
-                    restaurants={restaurants}
-                    filteredRestaurants={filteredRestaurants}
-                  />
-                )}
+            <div class="bottombar">
+              <RestaurantsButton
+                restaurantsButtonOn={restaurantsButtonOn}
+                restaurantsOn={restaurantsOn}
+                restaurantsButtonHandler={restaurantsButtonHandler}
+              />
+              <FilteringCategories
+                restaurantsOn={restaurantsOn}
+                openButtonHandler={openButtonHandler}
+                closedButtonHandler={closedButtonHandler}
+                pickupButtonHandler={pickupButtonHandler}
+                deliveryButtonHandler={deliveryButtonHandler}
+              />
+            </div>
+            <hr />
+            <div class="maplistcontainer">
+              <div className="listcontainer">
+                <ul>
+                  {filteredRestaurants &&
+                    filteredRestaurants.map((item) => (
+                      <Restaurant item={item} />
+                    ))}
+                </ul>
+                <div>
+                  {filteredRestaurants && filteredRestaurants.length > 0 && (
+                    <Map
+                      restaurants={restaurants}
+                      filteredRestaurants={filteredRestaurants}
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </Route>
+          </Route>
 
-        <Route
-          exact
-          path="/detailspage/:id"
-          component={withRouter(DetailsPage)}
-        />
+          <Route
+            exact
+            path="/detailspage/:id"
+            component={withRouter(DetailsPage)}
+          />
 
-        <Route exact path="/about/">
-          <About />
-        </Route>
-        <Route exact path="/">
-          <App />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+          <Route exact path="/about/">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <App />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

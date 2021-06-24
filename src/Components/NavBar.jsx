@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import iconmoon from '../images/iconmoon.png';
 export const NavBar = () => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split('/');
+
+  const checkbox = document.getElementById('checkbox');
+  const onChangeHandler = () => {
+    checkbox.addEventListener('change', () => {
+      document.body.classList.toggle('dark');
+    });
+  };
+
   return (
     <div>
       <nav class="navbar">
@@ -29,13 +37,32 @@ export const NavBar = () => {
               <span> About </span>
             </Link>
           </div>
-        </div>
-        <div class="right-side">
-          <img
-            class="foodies_logo"
-            src="http://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png"
-            alt="Foodies"
+
+          <input
+            type="checkbox"
+            class="checkbox"
+            id="checkbox"
+            onChange={onChangeHandler}
           />
+          <label for="checkbox" class="label">
+            <img src={iconmoon} alt="" id="iconmoon" />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8MJJGX3fqNXwAjtpWHECZkGE6nvWBQ6BDaQ&usqp=CAU"
+              alt=""
+              id="iconsun"
+            />
+            <span class="ball"></span>
+          </label>
+        </div>
+
+        <div>
+          <div class="right-side">
+            <img
+              class="foodies_logo"
+              src="http://www.thenaturalfoodies.com/wp-content/uploads/2019/08/welove_foodies_t.png"
+              alt="Foodies"
+            />
+          </div>
         </div>
       </nav>
     </div>
