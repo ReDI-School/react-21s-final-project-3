@@ -6,6 +6,9 @@ import { SearchBar } from './Components/SearchBar';
 import { Footer } from './Components/Footer';
 import { RestaurantsButton } from './Components/RestaurantsButton';
 
+import { darkmode } from './Components/darkmode';
+
+import Map from './Components/Map';
 //import { ListOfRestaurants } from './Components/ListOfRestaurants';
 import { About } from './Components/About';
 
@@ -140,9 +143,10 @@ function App() {
               {filteredRestaurants &&
                 filteredRestaurants.map((item) => <Restaurant item={item} />)}
             </ul>
+            <Map />
           </div>
         </Route>
-
+        <darkmode />
         <Route
           exact
           path="/detailspage/:id"
