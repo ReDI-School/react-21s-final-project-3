@@ -22,7 +22,7 @@
   border-bottom: 1px solid orange;
   color: orangered !important;
 }
-.navbar div :hover {
+.left-side div:hover {
   color: orangered;
   border-bottom: 1px solid orange;
   padding-bottom: 2.5px;
@@ -60,7 +60,7 @@ input {
   margin-top: 0px;
   margin-left: -5px;
   height: 30px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   border-radius: 19px;
   padding-left: 15px;
 }
@@ -88,7 +88,7 @@ input {
   border: transparent;
   height: 55px;
   width: 400px;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   border-radius: 35px;
   margin: 20px;
   margin-left: 75px;
@@ -106,7 +106,7 @@ input {
   border: transparent;
   height: 50px;
   width: 150px;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   border-radius: 40px;
   align-items: center;
   justify-content: center;
@@ -133,6 +133,7 @@ input {
 .delivery:hover {
   background-color: rgb(140, 191, 217, 0.9);
   cursor: pointer;
+  color: orangered;
 }
 .restaurantsbutton:hover {
   background-color: rgb(140, 191, 217, 0.9);
@@ -158,6 +159,7 @@ hr {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0px;
+  margin-top: 0px;
 }
 .bottombar {
   display: flex;
@@ -183,7 +185,7 @@ ul {
 .restaurant_card {
   box-shadow: 1px 2px rgb(140, 191, 217, 0.9);
   border-radius: 5px;
-  height: 315px;
+  height: 314px;
   margin-bottom: 12px;
 }
 .restaurant_card:hover,
@@ -225,12 +227,12 @@ ul {
   font-size: 14px;
   height: 90px;
   position: relative;
-  top: -75px;
+  top: -80px;
   border-radius: 6px 6px 0px 0px;
 }
 .thumb {
   margin-top: -82px;
-  padding: 10px;
+  padding: 8px;
   margin-left: 210px;
   display: flex;
   justify-content: space-around;
@@ -240,6 +242,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -35px;
 }
 .socialmedia {
   height: 50px;
@@ -292,16 +295,30 @@ footer {
 }
 .madewith {
   height: 350px;
-  padding-bottom: 50px;
+  margin-bottom: 200px;
   padding-left: 50px;
 }
 .IK {
-  height: 240px;
+  height: 300px;
   padding: 20px;
   margin-left: 100px;
+  margin-bottom: 130px;
+  box-shadow: 2px 5px 5px 2px rgb(140, 191, 217);
 }
 .IKname {
-  color: black;
+  color: rgb(140, 191, 217);
+  margin-left: 130px;
+  margin-right: 130px;
+}
+.IKphotos {
+  margin-left: 100px;
+  margin-bottom: 500px;
+}
+
+.map {
+  justify-items: center;
+  margin-left: 200px;
+  margin-bottom: 50px;
 }
 /*darkmode*/
 :root {

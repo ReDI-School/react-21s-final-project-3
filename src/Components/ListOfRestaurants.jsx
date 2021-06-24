@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Restaurant } from './Restaurant';
+//import { Map } from './Map';
 
 export const ListOfRestaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -22,12 +23,14 @@ export const ListOfRestaurants = () => {
   console.log(restaurants);
 
   return (
-    <div class="listcontainer">
-      <ul>
-        {restaurants.map((item) => (
-          <Restaurant item={item} />
-        ))}
-      </ul>
+    <div>
+      <div class="listcontainer">
+        <ul>
+          {restaurants.map((item) => (
+            <Restaurant item={item} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

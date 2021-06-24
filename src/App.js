@@ -28,7 +28,7 @@ function App() {
   const [restaurantsButtonOn, setRestaurantsButtonOn] = useState(false);
 
   const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState();
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   //const [open, setOpen] = useState(false);
 
@@ -137,13 +137,21 @@ function App() {
             />
           </div>
           <hr />
-
-          <div className="listcontainer">
-            <ul>
-              {filteredRestaurants &&
-                filteredRestaurants.map((item) => <Restaurant item={item} />)}
-            </ul>
-            <Map />
+          <div class="maplistcontainer">
+            <div className="listcontainer">
+              <ul>
+                {filteredRestaurants &&
+                  filteredRestaurants.map((item) => <Restaurant item={item} />)}
+              </ul>
+              <div>
+                {filteredRestaurants && filteredRestaurants.length > 0 && (
+                  <Map
+                    restaurants={restaurants}
+                    filteredRestaurants={filteredRestaurants}
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </Route>
         <darkmode />
