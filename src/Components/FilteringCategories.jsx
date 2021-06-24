@@ -15,7 +15,10 @@ export const FilteringCategories = ({
           onClick={openButtonHandler}
           style={
             restaurantsOn === 'restaurantsopen'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              ? {
+                  backgroundColor: 'rgb(140, 191, 217, 0.7)',
+                  color: 'orangered',
+                }
               : null
           }
         >
@@ -30,7 +33,10 @@ export const FilteringCategories = ({
           onClick={closedButtonHandler}
           style={
             restaurantsOn === 'restaurantsclosed'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              ? {
+                  backgroundColor: 'rgb(140, 191, 217, 0.7)',
+                  color: 'orangered',
+                }
               : null
           }
         >
@@ -45,7 +51,10 @@ export const FilteringCategories = ({
           onClick={pickupButtonHandler}
           style={
             restaurantsOn === 'restaurantspickup'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              ? {
+                  backgroundColor: 'rgb(140, 191, 217, 0.7)',
+                  color: 'orangered',
+                }
               : null
           }
         >
@@ -60,7 +69,10 @@ export const FilteringCategories = ({
           onClick={deliveryButtonHandler}
           style={
             restaurantsOn === 'restaurantsdelivery'
-              ? { backgroundColor: 'rgb(140, 191, 217, 0.7)' }
+              ? {
+                  backgroundColor: 'rgb(140, 191, 217, 0.7)',
+                  color: 'orangered',
+                }
               : null
           }
         >

@@ -1,26 +1,25 @@
 .detailsPage {
   background: linear-gradient(rgb(140, 191, 217, 0.7), rgb(235, 222, 197));
-  border-radius: 2rem;
+  border-radius: 0.2rem;
   margin-top: 0.5rem;
-  margin-left: 4vh;
-  margin-right: 4vh;
+  margin-left: 55vh;
+  margin-right: 35vh;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   height: 34rem;
+  box-shadow: 0px 0px 6px 0px;
 }
 
 .detailsPage img {
-  width: 25rem;
-  height: 25rem;
-  border-top-left-radius: 4rem;
-  border-top-right-radius: 4rem;
-  border-bottom-left-radius: 3rem;
-  border-bottom-right-radius: 3rem;
-  padding-bottom: 2rem;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 10px;
+  margin: 50px;
   justify-content: left;
-  padding-left: 2rem;
-  padding-top: 3rem;
+  margin-left: -70px;
+  box-shadow: 0px 0px 6px 0px;
 }
 
 .restaurantname {
@@ -31,4 +30,8 @@
 .info {
   color: orangered;
   text-transform: uppercase;
+}
+.detailcontainer {
+  margin: 70px;
+  margin-left: 0px;
 }

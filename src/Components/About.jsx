@@ -6,12 +6,14 @@ export const About = () => {
   return (
     <div class="madewith">
       <h1>
-        Made with <span> &hearts;</span> by{' '}
+        Made with <span> &hearts;</span> by <br />
         <span class="IKname"> Isabelle Muresan </span> &
         <span class="IKname"> Khouloud Karoui</span>
       </h1>
-      <img class="IK" src={Isabelle} alt="" />{' '}
-      <img class="IK" src={Khouloud} alt="" />
+      <div class="IKphotos">
+        <img class="IK" src={Isabelle} alt="" />{' '}
+        <img class="IK" src={Khouloud} alt="" />
+      </div>
     </div>
   );
 };
