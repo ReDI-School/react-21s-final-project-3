@@ -1,3 +1,62 @@
+/*body {
+  background-color: black;
+} */
+
+/*.App {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+/*-------------darkmode----------*/
+#iconmoon {
+  width: 27px;
+  height: 28px;
+  cursor: pointer;
+}
+#iconsun {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+:root {
+  --primary-color: #rgb(237, 242, 220, 0.01);
+  --secondary-color: rgb(33, 33, 33);
+}
+.body.dark {
+  --primary-color: rgb(0, 1, 6);
+  --secondary-color: rgb(255, 255, 255);
+}
+
+.label {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  border-radius: 50px;
+  height: 28px;
+  width: 64px;
+  box-sizing: border-box;
+  position: relative;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+.checkbox:checked + .label .ball {
+  transform: translateX(28px);
+}
+.ball {
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 3.5px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 0.3s linear;
+}
+/*-------------darkmode----------*/
+
 .navbar {
   color: black;
   display: flex;
@@ -64,6 +123,18 @@ input {
   border-radius: 19px;
   padding-left: 15px;
 }
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+  margin-bottom: -15px;
+}
+.search-button img {
+  width: 27px;
+  height: 27px;
+  margin: -10px;
+}
 .searchbar {
   background-image: url('https://hintwallaper.com/wp-content/uploads/2020/11/Food-Wallpaper-HD-Download.jpg');
   margin: 3px;
@@ -75,6 +146,7 @@ input {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .sticky {
   position: sticky;
   top: 70px;
@@ -245,7 +317,7 @@ footer {
   margin-top: -35px;
 }
 .socialmedia {
-  height: 50px;
+  height: 40px;
   margin-right: 10px;
   width: auto;
 }
@@ -271,7 +343,7 @@ footer {
   }
 }
 .foodylogo {
-  height: 75px;
+  height: 60px;
   text-align: left;
 }
 .App-header {
