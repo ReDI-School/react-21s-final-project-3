@@ -1,5 +1,4 @@
 import './App.css';
-import './Components/darkmode.css';
 
 import React, { useState, useEffect } from 'react';
 import { NavBar } from './Components/NavBar';

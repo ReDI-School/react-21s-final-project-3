@@ -1,6 +1,6 @@
 import React from 'react';
 import searchimg from '../images/searchimg.png';
-import './darkmode.css';
+
 export const SearchBar = ({
   setRestaurantsOn,
   inputOnChangeHandler,
