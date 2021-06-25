@@ -1,17 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import iconmoon from '../images/iconmoon.png';
-export const NavBar = () => {
+export const NavBar = ({ isDarkMode, handleToggleDarkModeChange }) => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split('/');
-
-  const checkbox = document.getElementById('checkbox');
-  const onChangeHandler = () => {
-    checkbox.addEventListener('change', () => {
-      document.body.classList.toggle('dark');
-    });
-  };
 
   return (
     <div>
@@ -42,7 +35,7 @@ export const NavBar = () => {
             type="checkbox"
             class="checkbox"
             id="checkbox"
-            onChange={onChangeHandler}
+            onChange={handleToggleDarkModeChange}
           />
           <label for="checkbox" class="label">
             <img src={iconmoon} alt="" id="iconmoon" />

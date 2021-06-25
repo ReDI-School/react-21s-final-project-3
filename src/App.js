@@ -5,8 +5,7 @@ import { NavBar } from './Components/NavBar';
 import { SearchBar } from './Components/SearchBar';
 import { Footer } from './Components/Footer';
 import { RestaurantsButton } from './Components/RestaurantsButton';
-
-import { darkmode } from './Components/darkmode';
+import styled from 'styled-components';
 
 import Map from './Components/Map';
 //import { ListOfRestaurants } from './Components/ListOfRestaurants';
@@ -29,6 +28,9 @@ function App() {
 
   const [restaurants, setRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const handleToggleDarkModeChange = () => setIsDarkMode(!isDarkMode);
 
   //const [open, setOpen] = useState(false);
 
@@ -105,76 +107,88 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Route>
+      <StyledPage isDarkMode={isDarkMode}>
+        <Router>
+          <Route>
+            <Switch>
+              <div>
+                <NavBar
+                  isDarkMode={isDarkMode}
+                  handleToggleDarkModeChange={handleToggleDarkModeChange}
+                />
+              </div>
+            </Switch>
+          </Route>
           <Switch>
-            <div>
-              <NavBar />
-            </div>
-          </Switch>
-        </Route>
-        <Switch>
-          <Route exact path="/">
-            <div>
-              <SearchBar
-                setRestaurantsOn={setRestaurantsOn}
-                inputOnChangeHandler={inputOnChangeHandler}
-                search={search}
-              />
-            </div>
+            <Route exact path="/">
+              <div>
+                <SearchBar
+                  setRestaurantsOn={setRestaurantsOn}
+                  inputOnChangeHandler={inputOnChangeHandler}
+                  search={search}
+                />
+              </div>
 
-            <div class="bottombar">
-              <RestaurantsButton
-                restaurantsButtonOn={restaurantsButtonOn}
-                restaurantsOn={restaurantsOn}
-                restaurantsButtonHandler={restaurantsButtonHandler}
-              />
-              <FilteringCategories
-                restaurantsOn={restaurantsOn}
-                openButtonHandler={openButtonHandler}
-                closedButtonHandler={closedButtonHandler}
-                pickupButtonHandler={pickupButtonHandler}
-                deliveryButtonHandler={deliveryButtonHandler}
-              />
-            </div>
-            <hr />
-            <div class="maplistcontainer">
-              <div className="listcontainer">
-                <ul>
-                  {filteredRestaurants &&
-                    filteredRestaurants.map((item) => (
-                      <Restaurant item={item} />
-                    ))}
-                </ul>
-                <div>
-                  {filteredRestaurants && filteredRestaurants.length > 0 && (
-                    <Map
-                      restaurants={restaurants}
-                      filteredRestaurants={filteredRestaurants}
-                    />
-                  )}
+              <div class="bottombar">
+                <RestaurantsButton
+                  restaurantsButtonOn={restaurantsButtonOn}
+                  restaurantsOn={restaurantsOn}
+                  restaurantsButtonHandler={restaurantsButtonHandler}
+                  isDarkMode={isDarkMode}
+                />
+                <FilteringCategories
+                  restaurantsOn={restaurantsOn}
+                  openButtonHandler={openButtonHandler}
+                  closedButtonHandler={closedButtonHandler}
+                  pickupButtonHandler={pickupButtonHandler}
+                  deliveryButtonHandler={deliveryButtonHandler}
+                  isDarkMode={isDarkMode}
+                />
+              </div>
+              <hr />
+              <div class="maplistcontainer">
+                <div className="listcontainer">
+                  <ul>
+                    {filteredRestaurants &&
+                      filteredRestaurants.map((item) => (
+                        <Restaurant item={item} isDarkMode={isDarkMode} />
+                      ))}
+                  </ul>
+                  <div>
+                    {filteredRestaurants && filteredRestaurants.length > 0 && (
+                      <Map
+                        restaurants={restaurants}
+                        filteredRestaurants={filteredRestaurants}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </Route>
+            </Route>
 
-          <Route
-            exact
-            path="/detailspage/:id"
-            component={withRouter(DetailsPage)}
-          />
+            <Route
+              exact
+              path="/detailspage/:id"
+              component={withRouter(DetailsPage)}
+              isDarkMode={isDarkMode}
+            />
 
-          <Route exact path="/about/">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <App />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+            <Route exact path="/about/">
+              <About isDarkMode={isDarkMode} />
+            </Route>
+            <Route exact path="/">
+              <App />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </StyledPage>
     </div>
   );
 }
-
+const StyledPage = styled.div`
+  border: ${(props) => (props.isDarkMode ? '1px solid white' : '')};
+  background-color: ${(props) => (props.isDarkMode ? '#0a244d' : '')};
+  color: ${(props) => (props.isDarkMode ? 'white' : '')};
+`;
 export default App;
